@@ -1,11 +1,13 @@
 <script setup>
-import {store} from "../js/state.js";
+import {store, supportsCustFrequency, showCustFreq} from "../js/state.js";
 import BindPhraseInput from "../components/BindPhraseInput.vue";
 import RFSelect from "../components/RFSelect.vue";
 import WiFiSettingsInput from "../components/WiFiSettingsInput.vue";
 import FlashMethodSelect from "../components/FlashMethodSelect.vue";
 import WiFiAutoOn from "../components/WiFiAutoOn.vue";
 import TXOptions from "../components/TXOptions.vue";
+
+import CustFreqOptions from "../components/CustFreqOptions.vue";
 </script>
 
 <template>
@@ -15,7 +17,9 @@ import TXOptions from "../components/TXOptions.vue";
     <br>
     <VForm autocomplete="on" method="POST">
       <BindPhraseInput v-model="store.options.uid"/>
-      <RFSelect v-model:region="store.options.region" v-model:domain="store.options.domain" :radio="store.radio"/>
+      <VCheckbox v-model="store.options.cf.bUseCustFreq" label='Use Custom Frequency' v-if="supportsCustFrequency()"/>
+      <RFSelect v-model:region="store.options.region" v-model:domain="store.options.domain" v-if="!showCustFreq()"/>
+      <CustFreqOptions v-if="showCustFreq()"/>
       <WiFiSettingsInput v-model:ssid="store.options.ssid" v-model:password="store.options.password"
                          v-if="store.target?.config?.platform!=='stm32'"/>
 

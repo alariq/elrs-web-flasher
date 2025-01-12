@@ -23,7 +23,7 @@ function updateVersions() {
     hardware.value = null
     store.version = null
     versions.value = []
-    if (flashBranch.value) {
+    if (!flashBranch.value) {
       Object.entries(firmware.value.branches).forEach(([key, value]) => {
         versions.value.push({title: key, value: value})
         if (!store.version) store.version = value
@@ -52,7 +52,7 @@ watchPostEffect(() => {
   if (store.version) {
     store.folder = `./assets/${store.firmware}`
 
-    fetch(`./assets/${store.firmware}/hardware/targets.json`).then(r => r.json()).then(r => {
+    fetch(`./assets/${store.firmware}/${store.version}/hardware/targets.json`).then(r => r.json()).then(r => {
       hardware.value = r
       store.vendor = null
       vendors.value = []
@@ -128,7 +128,7 @@ watch(() => store.target, (v, _oldValue) => {
 })
 
 function flashType() {
-  return flashBranch.value ? 'Branches' : 'Releases'
+  return flashBranch.value ? 'Releases' : 'Branches'
 }
 </script>
 

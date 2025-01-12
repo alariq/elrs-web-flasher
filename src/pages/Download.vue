@@ -27,10 +27,16 @@ async function buildFirmware() {
 }
 
 async function downloadFirmware() {
+  var filename = store.target?.config?.product_name
+  if(!filename) {
+    filename = "firmware";
+  } else {
+    filename = filename + "-" + store.version;
+  }
   if (store.target.config.platform === 'esp8285') {
     const bin = pako.gzip(files.firmwareFiles[files.firmwareFiles.length - 1].data)
     const data = new Blob([bin], {type: 'application/octet-stream'})
-    FileSaver.saveAs(data, 'firmware.bin.gz')
+    FileSaver.saveAs(data, filename + '.bin.gz')
   } else if (store.target.config.upload_methods.includes('zip') ||
       (store.targetType === 'vrx' && store.vendor === 'hdzero-goggle')) { // or HDZero Goggles
     // create zip file
@@ -39,11 +45,11 @@ async function downloadFirmware() {
     await zipper.add('partitions.bin', new Blob([files.firmwareFiles[1].data.buffer], {type: 'application/octet-stream'}).stream())
     await zipper.add('boot_app0.bin', new Blob([files.firmwareFiles[2].data.buffer], {type: 'application/octet-stream'}).stream())
     await zipper.add('firmware.bin', new Blob([files.firmwareFiles[3].data.buffer], {type: 'application/octet-stream'}).stream())
-    FileSaver.saveAs(await zipper.close(), 'firmware.zip')
+    FileSaver.saveAs(await zipper.close(), filename + '.zip')
   } else {
     const bin = files.firmwareFiles[files.firmwareFiles.length - 1].data.buffer
     const data = new Blob([bin], {type: 'application/octet-stream'})
-    FileSaver.saveAs(data, 'firmware.bin')
+    FileSaver.saveAs(data, filename + '.bin')
   }
 }
 </script>

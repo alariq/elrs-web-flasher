@@ -31,6 +31,14 @@ const getSettings = async (deviceType) => {
         if (store.radio.endsWith('_900') || store.radio.endsWith('_dual')) {
             options.domain = store.options.domain
         }
+
+        //sebi
+        //alert(`setting cust freq stuff: c:${store.options.cf.bUseCustFreq} s: ${store.options.cf.freqStart} e: ${store.options.cf.freqEnd}`)
+        options["use_cust_freq"] = store.options.cf.bUseCustFreq;
+        options["cust_freq_s"] = store.options.cf.freqStart;
+        options["cust_freq_e"] = store.options.cf.freqEnd;
+        //
+
         if (store.target.config.features !== undefined && store.target.config.features.indexOf('buzzer') !== -1) {
             const beeptype = store.options.tx.melodyType
             options.beeptype = beeptype > 2 ? 2 : beeptype

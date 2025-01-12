@@ -7,6 +7,16 @@
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.16);
 }
 
+.containerMainInvisible {
+    z-index: 9999;
+    border: 1px solid #E8E8E8;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.16);
+    display: none;
+}
+
 .containerHeader {
     margin-bottom: 40px;
     text-align: center;

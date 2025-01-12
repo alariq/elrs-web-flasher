@@ -15,6 +15,8 @@ import STLinkFlash from "./pages/STLinkFlash.vue";
 
 import ReloadPrompt from './components/ReloadPrompt.vue';
 
+import FirmwareInfo from "./pages/FirmwareInfo.vue";
+
 function stepPrev() {
   if (store.currentStep === 1) {
     resetState()
@@ -54,6 +56,10 @@ function disableNext() {
           <h2>WEB FLASHER</h2>
         </div>
 
+        <div class="text-subtitle-1">
+         	<p><b>Ця прошивка модифікована військовим для військових і розповсюджується безкоштовно. Питання та пропозиції:<br> 94df6040915a6a1e3e7485ebedd34710@proton.me</b></p>
+        </div>
+
         <div class="text-subtitle-2 position-absolute right-0 bottom-0">
           Git: @GITHASH@
         </div>
@@ -66,6 +72,8 @@ function disableNext() {
             </VContainer>
             <VContainer max-width="1024px" v-else>
               <div class="containerMain">
+
+                <FirmwareInfo />
 
                 <VStepper v-model="store.currentStep" :items="['Hardware', 'Options', 'Flashing']" hideActions>
                   <template v-slot:item.1>
@@ -103,7 +111,7 @@ function disableNext() {
 }
 
 .v-app-bar {
-  background: linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2) !important;
+  background: linear-gradient(0deg, rgb(200, 200, 145), rgb(233, 238, 145) 50%, rgb(0,212, 255) 50%, rgb(0,125, 255)) !important;
 }
 
 .v-toolbar__content {

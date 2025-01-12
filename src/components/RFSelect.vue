@@ -7,7 +7,8 @@ const props = defineProps({radio: String})
 
 const regions = [
   {value: 'FCC', title: 'FCC'},
-  {value: 'LBT', title: 'LBT'}
+  //sebi: I do not prepare fw for LBT
+  //{value: 'LBT', title: 'LBT'}
 ]
 const domains = [
   {value: 0, title: 'AU915'},

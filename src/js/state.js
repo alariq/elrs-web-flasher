@@ -34,6 +34,11 @@ export const store = reactive({
             rxAsTx: false,
             rxAsTxType: 0   // 0 = Internal (Full-duplex), 1 = External (Half-duplex)
         },
+        cf: {
+            bUseCustFreq: false,
+            freqStart: 0,
+            freqEnd: 0,
+        },
         flashMethod: null,
     }
 })
@@ -68,10 +73,22 @@ export function resetState() {
             r9mmMiniSBUS: false,
             fanMinRuntime: 30,
         },
+        cf: {
+            bUseCustFreq: false,
+            freqStart: 0,
+            freqEnd: 0,
+        },
         flashMethod: null,
     }
 }
 
 export function hasFeature(feature) {
     return store.target?.config?.features?.includes(feature)
+}
+
+export function supportsCustFrequency() {
+  return store.radio && (store.radio.endsWith('900') || store.radio.endsWith('dual'))
+}
+export function showCustFreq() {
+  return supportsCustFrequency() && store.options.cf.bUseCustFreq;
 }

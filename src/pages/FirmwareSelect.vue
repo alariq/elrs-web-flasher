@@ -10,6 +10,9 @@ function setFirmware(firmware, targetType) {
   store.targetType = targetType;
   emit('onClick');
 }
+
+import FirmwareInfo from "../pages/FirmwareInfo.vue";
+
 </script>
 
 <template>
@@ -18,6 +21,7 @@ function setFirmware(firmware, targetType) {
       <VCardTitle>Main RC Firmware</VCardTitle>
       <VCardSubtitle>Controlled or controlling... we got you covered!</VCardSubtitle>
     </div>
+    <VRow> <FirmwareInfo /> </VRow>
     <VRow>
       <VCol md="6">
         <HoverCard min-height="100%" @click="setFirmware('firmware', 'tx')"
@@ -34,7 +38,7 @@ function setFirmware(firmware, targetType) {
       </VCol>
     </VRow>
   </div>
-  <div class="containerMain">
+  <div class="containerMainInvisible">
     <div class="containerHeader">
       <VCardTitle>Backpack Firmware</VCardTitle>
       <VCardSubtitle>Wireless control of <i>all</i> the things!</VCardSubtitle>
