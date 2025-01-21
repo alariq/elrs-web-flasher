@@ -38,6 +38,8 @@ export const store = reactive({
             bUseCustFreq: false,
             freqStart: 0,
             freqEnd: 0,
+            freqSecStart: 0,
+            freqSecEnd: 0,
         },
         flashMethod: null,
     }
@@ -87,8 +89,9 @@ export function hasFeature(feature) {
 }
 
 export function supportsCustFrequency() {
-  return store.radio && (store.radio.endsWith('900') || store.radio.endsWith('dual'))
+    return true;
+    //return store.radio && (store.radio.endsWith('900') || store.radio.endsWith('dual'))
 }
 export function showCustFreq() {
-  return supportsCustFrequency() && store.options.cf.bUseCustFreq;
+    return supportsCustFrequency() && store.options.cf.bUseCustFreq;
 }

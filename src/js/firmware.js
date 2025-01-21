@@ -37,6 +37,8 @@ const getSettings = async (deviceType) => {
         options["use_cust_freq"] = store.options.cf.bUseCustFreq;
         options["cust_freq_s"] = store.options.cf.freqStart;
         options["cust_freq_e"] = store.options.cf.freqEnd;
+        options["cust_freq_sec_s"] = store.options.cf.freqSecStart;
+        options["cust_freq_sec_e"] = store.options.cf.freqSecEnd;
         //
 
         if (store.target.config.features !== undefined && store.target.config.features.indexOf('buzzer') !== -1) {

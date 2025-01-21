@@ -19,7 +19,7 @@ import CustFreqOptions from "../components/CustFreqOptions.vue";
       <BindPhraseInput v-model="store.options.uid"/>
       <VCheckbox v-model="store.options.cf.bUseCustFreq" label='Use Custom Frequency' v-if="supportsCustFrequency()"/>
       <RFSelect v-model:region="store.options.region" v-model:domain="store.options.domain" v-if="!showCustFreq()"/>
-      <CustFreqOptions v-if="showCustFreq()"/>
+      <CustFreqOptions v-if="showCustFreq()" type="Primary"/>
       <WiFiSettingsInput v-model:ssid="store.options.ssid" v-model:password="store.options.password"
                          v-if="store.target?.config?.platform!=='stm32'"/>
 
