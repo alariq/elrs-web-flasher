@@ -32,8 +32,8 @@
                       </ul>
                     </VCardText>
 
-                    <a href="README.txt">README.txt</a> &nbsp; | &nbsp;
-                    <a href="README.pdf">Налаштування</a> &nbsp; | &nbsp;
+                    <a href="./README.txt">README.txt</a> &nbsp; | &nbsp;
+                    <a href="./README.pdf">Налаштування</a> &nbsp; | &nbsp;
                     <a href="mailto:94df6040915a6a1e3e7485ebedd34710@proton.me">Пошта: 94df6040915a6a1e3e7485ebedd34710@proton.me</a>
 
                     </VExpansionPanelText>
