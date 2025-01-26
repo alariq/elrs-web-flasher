@@ -11,7 +11,7 @@ export default defineConfig({
     vuetify(),
     VitePWA({
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,txt,pdf}'],
         runtimeCaching: [
           {
             // Cache firmware files for a device once they are requested the first time
