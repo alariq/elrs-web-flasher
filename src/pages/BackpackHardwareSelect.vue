@@ -6,7 +6,7 @@ import {compareSemanticVersions} from '../js/version';
 defineProps(['vendorLabel'])
 
 let firmware = ref(null);
-let flashBranch = ref(false);
+let flashBranch = ref(true);
 let hardware = ref(null);
 let versions = ref([]);
 let vendors = ref([]);

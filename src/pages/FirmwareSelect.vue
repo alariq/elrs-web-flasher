@@ -38,26 +38,27 @@ import FirmwareInfo from "../pages/FirmwareInfo.vue";
       </VCol>
     </VRow>
   </div>
-  <div class="containerMainInvisible">
+  <div class="containerMain">
     <div class="containerHeader">
       <VCardTitle>Backpack Firmware</VCardTitle>
       <VCardSubtitle>Wireless control of <i>all</i> the things!</VCardSubtitle>
     </div>
     <VRow>
-      <VCol md="3">
+      <VCol md="6">
         <HoverCard min-height="100%" @click="setFirmware('backpack', 'txbp')"
                     image="backpack_723137.png" hover-image="backpack_723278.png"
                     title="Transmitter Module"
                     text="Built in to most transmitters, it communicates with the other backpacks or via WiFi to a computer
                     running Mission Planner (or other) for MAVLink craft."/>
       </VCol>
-      <VCol md="3">
+      <VCol md="6">
         <HoverCard min-height="100%" @click="setFirmware('backpack', 'vrx')"
                     image="vr-glasses_8736938.png" hover-image="vr-glasses_8737003.png"
                     title="Video Receiver"
                     text="A built-in VRx backpack like the HDZero goggles backpack, or the SkyZone ELRS backpack; or a
                     DIY solution connected to a VRx allows you to always have your goggles on the right channel."/>
       </VCol>
+      <!-- 
       <VCol md="3">
         <HoverCard min-height="100%" @click="setFirmware('backpack', 'aat')"
                     image="satellite_2637312.png" hover-image="satellite_2637314.png"
@@ -72,6 +73,7 @@ import FirmwareInfo from "../pages/FirmwareInfo.vue";
                     text="Connects to the RotorHazard race timing system and sends OSD message with lap times and current
                     place during the race so you always know where you're placed."/>
       </VCol>
+      -->
     </VRow>
   </div>
 </template>
