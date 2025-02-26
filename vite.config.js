@@ -16,12 +16,13 @@ export default defineConfig({
           {
             // Cache firmware files for a device once they are requested the first time
             // This allows building again when being offline
+            // sebi: https://developer.chrome.com/docs/workbox/caching-resources-during-runtime
             urlPattern: /\/assets\/(firmware|backpack)\/.*/i,
-            handler: 'CacheFirst',
+            handler: 'NetworkFirst',
             options: {
               cacheName: 'firmwares',
               expiration: {
-                maxEntries: 50,
+                maxEntries: 5,
               },
             },
           },
